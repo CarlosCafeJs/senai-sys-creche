@@ -1,4 +1,5 @@
 package service;
+
 import AO.AlunoAO;
 import model.Alunos;
 
@@ -7,15 +8,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.List;
 
-
 public class AlunoService {
     private AlunoAO alunoAO;
 
     public AlunoService() {
         try {
-            Connection connection = DriverManager.getConnection("", "", "");
+            Connection connection = DriverManager.getConnection("https://172.18.0.2", "root", "1234");
             alunoAO = new AlunoAO(connection);
-//            AlunoAO.createTable();
+            AlunoAO.createTable();
         } catch (SQLException e) {
             e.printStackTrace();
         }

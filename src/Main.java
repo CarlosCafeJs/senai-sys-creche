@@ -1,15 +1,33 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.sql.SQLException;
+import java.util.List;
+import model.Alunos;
+import service.AlunoService;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        AlunoService alunoService = new AlunoService();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        try {
+
+            Alunos aluno = new Alunos();
+            aluno.setNome("Carlos");
+            aluno.setIdade(8);
+            alunoService.addAluno(aluno);
+
+            List<Alunos> alunos = alunoService.getAllAlunos();
+            for (Alunos a : alunos) {
+                System.out.println("Aluno: " + a.getNome() + ", Idade: " + a.getIdade());
+            }
+
+            Alunos alunoEncontrado = alunoService.getAlunoById(1);
+            System.out.println(
+                    "Aluno encontrado: " + alunoEncontrado.getNome() + ", Idade: " + alunoEncontrado.getIdade());
+
+            alunoService.deleteAluno(1);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
     }
 }

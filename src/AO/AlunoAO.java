@@ -1,4 +1,5 @@
 package AO;
+
 import model.Alunos;
 
 import java.sql.*;
@@ -7,14 +8,13 @@ import java.util.List;
 
 public class AlunoAO {
 
-
-    private Connection connection;
+    private static Connection connection;
 
     public AlunoAO(Connection connection) {
         this.connection = connection;
     }
 
-    public void createTable() throws SQLException {
+    public static void createTable() throws SQLException {
         String sql = "CREATE TABLE IF NOT EXISTS aluno (id INT PRIMARY KEY AUTO_INCREMENT, nome VARCHAR(100), idade INT)";
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(sql);
@@ -34,7 +34,7 @@ public class AlunoAO {
         List<Alunos> alunos = new ArrayList<>();
         String sql = "SELECT * FROM aluno";
         try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
+                ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
                 Alunos aluno = new Alunos();
                 aluno.setId(rs.getLong("id"));
