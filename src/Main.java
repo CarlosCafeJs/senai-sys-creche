@@ -58,15 +58,15 @@ public class Main {
 
             switch (opcao) {
                 case 1:
+
+                    Long id = 0L;
                     System.out.print("Nome do aluno: ");
                     String nome = scanner.nextLine();
                     System.out.print("Idade do aluno: ");
                     int idade = scanner.nextInt();
-                    scanner.nextLine(); 
+                    scanner.nextLine();
 
-                    Aluno novoAluno = new Aluno();
-                    novoAluno.setNome(nome);
-                    novoAluno.setIdade(idade);
+                    Aluno novoAluno = new Aluno(nome, idade, id);
 
                     try {
                         alunoService.addAluno(novoAluno);
@@ -123,14 +123,15 @@ public class Main {
 
             switch (opcao) {
                 case 1:
+                    int idade = 0;
+                    Long id = 0L;
                     System.out.print("Nome do professor: ");
                     String nome = scanner.nextLine();
                     System.out.print("Matéria do professor: ");
                     String materia = scanner.nextLine();
 
-                    Professor novoProfessor = new Professor();
-                    novoProfessor.setNome(nome);
-                    novoProfessor.setMateria(materia);
+                    Professor novoProfessor = new Professor(nome, idade, id, materia);
+     
 
                     try {
                         professorService.addProfessor(novoProfessor);
@@ -183,7 +184,7 @@ public class Main {
             System.out.println("4. Voltar");
 
             int opcao = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -204,7 +205,7 @@ public class Main {
                 case 2:
                     System.out.print("ID da turma para remover: ");
                     int idRemover = scanner.nextInt();
-                    scanner.nextLine(); 
+                    scanner.nextLine();
 
                     try {
                         turmaService.deleteTurma(idRemover);

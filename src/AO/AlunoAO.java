@@ -35,10 +35,10 @@ public class AlunoAO {
         try (Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                Aluno aluno = new Aluno();
-                aluno.setId(rs.getLong("id"));
-                aluno.setNome(rs.getString("nome"));
-                aluno.setIdade(rs.getInt("idade"));
+                Long id = rs.getLong("id");
+                String nome = rs.getString("nome");
+                int idade = rs.getInt("idade");
+                Aluno aluno = new Aluno(nome, idade, id);
                 alunos.add(aluno);
             }
         }
@@ -51,10 +51,9 @@ public class AlunoAO {
             pstmt.setLong(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    Aluno aluno = new Aluno();
-                    aluno.setId(rs.getLong("id"));
-                    aluno.setNome(rs.getString("nome"));
-                    aluno.setIdade(rs.getInt("idade"));
+                    String nome = rs.getString("nome");
+                    int idade = rs.getInt("idade");
+                    Aluno aluno = new Aluno(nome, idade, id);
                     return aluno;
                 }
             }

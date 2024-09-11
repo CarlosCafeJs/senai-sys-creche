@@ -1,11 +1,13 @@
 package model;
 
-public class Aluno {
-    private Long id;
-    private String nome;
-    private int idade;
 
-    public Aluno() {
+public class Aluno extends Pessoas {
+    private Long id;
+
+
+    public Aluno(String nome, int idade, Long id) {
+        super(nome, idade);
+        this.id = id;
     }
 
     public Long getId() {
@@ -16,19 +18,5 @@ public class Aluno {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public int getIdade() {
-        return idade;
-    }
-
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
 }

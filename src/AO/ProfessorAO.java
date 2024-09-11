@@ -35,10 +35,11 @@ public class ProfessorAO {
     try (Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(sql)) {
       while (rs.next()) {
-        Professor professor = new Professor();
-        professor.setId(rs.getLong("id"));
-        professor.setNome(rs.getString("nome"));
-        professor.setMateria(rs.getString("materia"));
+        Long id = rs.getLong("id");
+        String nome = rs.getString("nome");
+        String materia = rs.getString("nome");
+        int idade = 0;
+        Professor professor = new Professor(nome, idade, id, materia);
         professores.add(professor);
       }
     }
@@ -51,10 +52,10 @@ public class ProfessorAO {
       pstmt.setLong(1, id);
       try (ResultSet rs = pstmt.executeQuery()) {
         if (rs.next()) {
-          Professor professor = new Professor();
-          professor.setId(rs.getLong("id"));
-          professor.setNome(rs.getString("nome"));
-          professor.setMateria(rs.getString("materia"));
+          String nome = rs.getString("nome");
+          String materia = rs.getString("nome");
+          int idade = 0;
+          Professor professor = new Professor(nome, idade, id, materia);
           return professor;
         }
       }

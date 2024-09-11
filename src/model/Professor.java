@@ -1,11 +1,13 @@
 package model;
 
-public class Professor {
+public class Professor extends Pessoas{
     private Long id;
-    private String nome;
     private String materia;
 
-    public Professor() {
+    public Professor(String nome, int idade, Long id, String materia) {
+        super(nome, idade);
+        this.id = id;
+        this.materia = materia;
     }
 
     public Long getId() {
@@ -16,13 +18,6 @@ public class Professor {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public String getMateria() {
         return materia;
