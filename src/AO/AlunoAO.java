@@ -1,27 +1,26 @@
 package AO;
 
-import model.Alunos;
+import model.Aluno;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlunoAO {
-
-    private static Connection connection;
+    private Connection connection;
 
     public AlunoAO(Connection connection) {
         this.connection = connection;
     }
 
-    public static void createTable() throws SQLException {
-        String sql = "CREATE TABLE IF NOT EXISTS aluno (id INT PRIMARY KEY AUTO_INCREMENT, nome VARCHAR(100), idade INT)";
+    public static void createTable(Connection connection) throws SQLException {
+        String sql = "CREATE TABLE IF NOT EXISTS aluno (id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100), idade INT)";
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(sql);
         }
     }
 
-    public void insert(Alunos aluno) throws SQLException {
+    public void insert(Aluno aluno) throws SQLException {
         String sql = "INSERT INTO aluno (nome, idade) VALUES (?, ?)";
         try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, aluno.getNome());
@@ -30,13 +29,13 @@ public class AlunoAO {
         }
     }
 
-    public List<Alunos> findAll() throws SQLException {
-        List<Alunos> alunos = new ArrayList<>();
+    public List<Aluno> findAll() throws SQLException {
+        List<Aluno> alunos = new ArrayList<>();
         String sql = "SELECT * FROM aluno";
         try (Statement stmt = connection.createStatement();
                 ResultSet rs = stmt.executeQuery(sql)) {
             while (rs.next()) {
-                Alunos aluno = new Alunos();
+                Aluno aluno = new Aluno();
                 aluno.setId(rs.getLong("id"));
                 aluno.setNome(rs.getString("nome"));
                 aluno.setIdade(rs.getInt("idade"));
@@ -46,13 +45,13 @@ public class AlunoAO {
         return alunos;
     }
 
-    public Alunos findById(int id) throws SQLException {
+    public Aluno findById(Long id) throws SQLException {
         String sql = "SELECT * FROM aluno WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
+            pstmt.setLong(1, id);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
-                    Alunos aluno = new Alunos();
+                    Aluno aluno = new Aluno();
                     aluno.setId(rs.getLong("id"));
                     aluno.setNome(rs.getString("nome"));
                     aluno.setIdade(rs.getInt("idade"));
@@ -63,10 +62,10 @@ public class AlunoAO {
         return null;
     }
 
-    public void delete(int id) throws SQLException {
+    public void delete(Long id) throws SQLException {
         String sql = "DELETE FROM aluno WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
+            pstmt.setLong(1, id);
             pstmt.executeUpdate();
         }
     }

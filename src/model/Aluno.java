@@ -1,18 +1,11 @@
 package model;
 
-public class Alunos {
+public class Aluno {
     private Long id;
     private String nome;
     private int idade;
 
-//    public Alunos(Long id, String nome, int idade) {
-//        this.id = id;
-//        this.nome = nome;
-//        this.idade = idade;
-//    }
-
-    public Alunos() {
-
+    public Aluno() {
     }
 
     public Long getId() {
