@@ -23,8 +23,7 @@ public class Main {
             System.out.println("4. Sair");
 
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a nova linha
-
+            scanner.nextLine();
             switch (opcao) {
                 case 1:
                     gerenciarAlunos(scanner, alunoService);
@@ -55,7 +54,7 @@ public class Main {
             System.out.println("4. Voltar");
 
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a nova linha
+            scanner.nextLine();
 
             switch (opcao) {
                 case 1:
@@ -63,7 +62,7 @@ public class Main {
                     String nome = scanner.nextLine();
                     System.out.print("Idade do aluno: ");
                     int idade = scanner.nextInt();
-                    scanner.nextLine(); // Consumir a nova linha
+                    scanner.nextLine(); 
 
                     Aluno novoAluno = new Aluno();
                     novoAluno.setNome(nome);
@@ -184,7 +183,7 @@ public class Main {
             System.out.println("4. Voltar");
 
             int opcao = scanner.nextInt();
-            scanner.nextLine(); // Consumir a nova linha
+            scanner.nextLine(); 
 
             switch (opcao) {
                 case 1:
@@ -205,7 +204,7 @@ public class Main {
                 case 2:
                     System.out.print("ID da turma para remover: ");
                     int idRemover = scanner.nextInt();
-                    scanner.nextLine(); // Consumir a nova linha
+                    scanner.nextLine(); 
 
                     try {
                         turmaService.deleteTurma(idRemover);
