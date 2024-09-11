@@ -1,12 +1,10 @@
 package model;
 
-public abstract class Turmas {
+public class Turma {
     private int id;
     private String nome;
 
-    public Turmas(int id, String nome) {
-        this.id = id;
-        this.nome = nome;
+    public Turma() {
     }
 
     public int getId() {

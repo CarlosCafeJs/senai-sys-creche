@@ -1,15 +1,11 @@
 package model;
 
-public abstract class Professores {
-
+public class Professor {
     private Long id;
     private String nome;
     private String materia;
 
-    public Professores(Long id, String nome, String materia) {
-        this.id = id;
-        this.nome = nome;
-        this.materia = materia;
+    public Professor() {
     }
 
     public Long getId() {
@@ -35,9 +31,4 @@ public abstract class Professores {
     public void setMateria(String materia) {
         this.materia = materia;
     }
-
-
-
-
 }
-
