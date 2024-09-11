@@ -1,0 +1,9 @@
+/workspaces/senai-sys-creche/creche/bin/Debug/creche.dacpac
+/workspaces/senai-sys-creche/creche/bin/Debug/creche.dll
+/workspaces/senai-sys-creche/creche/bin/Debug/creche.pdb
+/workspaces/senai-sys-creche/creche/obj/Debug/Model.xml
+/workspaces/senai-sys-creche/creche/obj/Debug/refactor.xml
+/workspaces/senai-sys-creche/creche/obj/Debug/postdeploy.sql
+/workspaces/senai-sys-creche/creche/obj/Debug/predeploy.sql
+/workspaces/senai-sys-creche/creche/obj/Debug/creche.dll
+/workspaces/senai-sys-creche/creche/obj/Debug/creche.pdb

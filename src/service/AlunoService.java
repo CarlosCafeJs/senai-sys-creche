@@ -13,8 +13,15 @@ public class AlunoService {
 
     public AlunoService() {
         try {
-            Connection connection = DriverManager.getConnection("https://172.18.0.2", "root", "1234");
+
+            String url = "jdbc:mysql://172.19.0.2:3306/creche";
+            String user = "root";
+            String password = "1234";
+
+            Connection connection = DriverManager.getConnection(url, user, password);
+
             alunoAO = new AlunoAO(connection);
+
             AlunoAO.createTable();
         } catch (SQLException e) {
             e.printStackTrace();
