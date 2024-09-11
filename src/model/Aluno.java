@@ -1,13 +1,11 @@
 package model;
 
-
 public class Aluno extends Pessoas {
     private Long id;
 
-
-    public Aluno(String nome, int idade, Long id) {
+    public Aluno(String nome, int idade) {
         super(nome, idade);
-        this.id = id;
+
     }
 
     public Long getId() {
@@ -17,6 +15,5 @@ public class Aluno extends Pessoas {
     public void setId(Long id) {
         this.id = id;
     }
-
 
 }

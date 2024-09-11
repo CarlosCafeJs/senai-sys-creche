@@ -38,7 +38,8 @@ public class AlunoAO {
                 Long id = rs.getLong("id");
                 String nome = rs.getString("nome");
                 int idade = rs.getInt("idade");
-                Aluno aluno = new Aluno(nome, idade, id);
+                Aluno aluno = new Aluno(nome, idade);
+                aluno.setId(rs.getLong("id"));
                 alunos.add(aluno);
             }
         }
@@ -53,7 +54,8 @@ public class AlunoAO {
                 if (rs.next()) {
                     String nome = rs.getString("nome");
                     int idade = rs.getInt("idade");
-                    Aluno aluno = new Aluno(nome, idade, id);
+                    Aluno aluno = new Aluno(nome, idade);
+                    aluno.setId(rs.getLong("id"));
                     return aluno;
                 }
             }

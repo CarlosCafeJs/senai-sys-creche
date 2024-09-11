@@ -65,8 +65,8 @@ public class Main {
                     System.out.print("Idade do aluno: ");
                     int idade = scanner.nextInt();
                     scanner.nextLine();
-
-                    Aluno novoAluno = new Aluno(nome, idade, id);
+                    
+                    Aluno novoAluno = new Aluno(nome, idade);
 
                     try {
                         alunoService.addAluno(novoAluno);
@@ -130,7 +130,7 @@ public class Main {
                     System.out.print("Matéria do professor: ");
                     String materia = scanner.nextLine();
 
-                    Professor novoProfessor = new Professor(nome, idade, id, materia);
+                    Professor novoProfessor = new Professor(nome, idade, materia);
      
 
                     try {

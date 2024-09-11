@@ -39,7 +39,7 @@ public class ProfessorAO {
         String nome = rs.getString("nome");
         String materia = rs.getString("nome");
         int idade = 0;
-        Professor professor = new Professor(nome, idade, id, materia);
+        Professor professor = new Professor(nome, idade, materia);
         professores.add(professor);
       }
     }
@@ -55,7 +55,7 @@ public class ProfessorAO {
           String nome = rs.getString("nome");
           String materia = rs.getString("nome");
           int idade = 0;
-          Professor professor = new Professor(nome, idade, id, materia);
+          Professor professor = new Professor(nome, idade, materia);
           return professor;
         }
       }
